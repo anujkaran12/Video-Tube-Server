@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 const connectDB = async(req,res) =>{
     try {
         
-      const connectionInstance =  await mongoose.connect(`${process.env.MONGO_URI}`);
+      const connectionInstance =  await mongoose.connect(`${process.env.MONGO_URI}`,{
+        dbName:"Video-tube"
+      });
       console.log(`MongoDB Connected || host ${connectionInstance.connection.host}`);
     } catch (error) {
         console.log("MONGO CONNECTION ERROR - ",error)
